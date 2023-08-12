@@ -23,6 +23,7 @@ function App() {
         });
       });
     console.log(filteredSymptoms)
+    if(filteredSymptoms.size===0) return ["No disease Found"]
     return [...filteredSymptoms]
   }
   // const search = (data) => {
@@ -40,13 +41,19 @@ function App() {
   //   );
   // };
 return (
-  <div className="app">
+  <div className="app bg-purple-300  h-screen">
+    <div className="bg-purple-300 ">
+
+    <div className="flex justify-center  bg-purple-300 items-center pt-5 ">
+
       <input
-        className="search"
+        className="search w-1/5 px-5 py-3 border border-2 border-black rounded-2xl "
         placeholder="Search..."
         onChange={(e) => setQuery(e.target.value.toLowerCase())}
-      />
+        />
+        </div>
     {<Table data={search(Users)} />}
+        </div>
   </div>
 );
 }
