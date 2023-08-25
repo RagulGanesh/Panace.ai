@@ -1,11 +1,24 @@
 import { useEffect, useState } from "react";
-import { Users } from "./users";
+// import { Users } from "./users";
 import Table from "./Table";
+import axios from "axios";
 
 // inputData.data.filter(item => Array.isArray(item));
 function App() {
   const [query, setQuery] = useState("");
   const keys = ["disease", "symptoms"];
+  const [Users,SetUsers]=useState([]);
+
+  const getData=async()=>{
+    const res=await axios.get("http://localhost:8000/")
+    
+    
+    SetUsers(res.data);
+  }
+
+  useEffect(()=>{
+      getData();
+  },[])
   const search=(diseases)=>{
     // const filteredSymptoms = [];
     // diseases.forEach(disease => {
