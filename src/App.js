@@ -44,7 +44,7 @@ function App() {
         arr.push(disease.disease)
       });
       console.log(diseases.length)
-      return arr
+      return arr.sort()
     }
     const inputSymptoms = query.split(',').map(symptom => symptom.trim());
       let matchingDiseaseNames = [];
@@ -59,7 +59,7 @@ function App() {
         }
       });
       console.log(matchingDiseaseNames.length)
-      return matchingDiseaseNames;
+      return matchingDiseaseNames.sort();
   }
 
 return (
